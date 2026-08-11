@@ -1,0 +1,76 @@
+@startuml
+title RAG query logging and golden-set evaluation
+
+autonumber
+actor User
+participant "Telegram / CLI" as Transport
+participant "LoggingRagService" as Logging
+participant "RagService" as RAG
+participant "Qwen Embedder" as Embedder
+database "FAISS" as FAISS
+database "SQLite" as SQLite
+participant "Security filter" as Security
+participant "Ollama Qwen 4B" as LLM
+participant "Answer validator" as Validator
+database "logs.jsonl" as Log
+participant "Golden evaluator" as Evaluator
+
+User -> Transport : question
+Transport -> Logging : answer(question)
+Logging -> RAG : answer(question)
+
+group Retrieval
+  RAG -> Embedder : encode_query(question)
+  Embedder --> RAG : normalized vector
+  RAG -> FAISS : search(vector, top_k=4)
+  FAISS --> RAG : chunk IDs + scores
+  RAG -> SQLite : load chunk text + metadata
+  SQLite --> RAG : retrieved chunks
+end
+
+alt empty or missing index
+  FAISS --> RAG : error / no chunks
+  RAG --> Logging : error or safe refusal
+else chunks returned
+  RAG -> Security : detect and remove prompt injection
+  Security --> RAG : safe chunks + report
+
+  alt all chunks removed or score below threshold
+    RAG --> Logging : "I do not know"
+  else usable context
+    RAG -> LLM : system prompt + question + chunks
+    note right of LLM
+      Possible failure:
+      context truncation,
+      unsupported claim,
+      invalid citation,
+      generation error
+    end note
+    LLM --> RAG : generated answer
+    RAG -> Validator : validate refusal + [S1..Sn] citations
+
+    alt empty, unknown, or invalid citations
+      Validator --> RAG : reject
+      RAG --> Logging : "I do not know"
+    else valid cited answer
+      Validator --> RAG : accept + cited chunks
+      RAG --> Logging : answer + sources
+    end
+  end
+end
+
+Logging -> Log : timestamp, query, result,
+Logging -> Log : retrieved/cited sources, length, status
+Logging --> Transport : answer or error
+Transport --> User : response
+
+opt Golden-set run
+  Evaluator -> Logging : each labelled question
+  Logging --> Evaluator : RagAnswer
+  Evaluator -> Evaluator : compare expected status
+  Evaluator -> Evaluator : expected source in citations
+  Evaluator -> Evaluator : required / forbidden facts
+  Evaluator -> Evaluator : calculate pass rates and gaps
+end
+
+@enduml

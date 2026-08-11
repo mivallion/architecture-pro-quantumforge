@@ -1,0 +1,14 @@
+{
+  "include": [
+    "build_knowledge_base.py",
+    "knowledge_models.py",
+    "tests"
+  ],
+  "extraPaths": [
+    ".."
+  ],
+  "pythonVersion": "3.14",
+  "typeCheckingMode": "all",
+  "reportUnnecessaryComparison": false,
+  "reportUnknownMemberType": false
+}

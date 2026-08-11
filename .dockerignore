@@ -1,0 +1,11 @@
+**
+!Dockerfile
+!app/
+!app/**
+!Task3/
+!Task3/index/
+!Task3/index/**
+
+**/__pycache__/
+**/*.py[cod]
+**/.DS_Store

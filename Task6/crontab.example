@@ -1,0 +1,2 @@
+# Daily at 06:00 local time. Install only after the launch agent is configured.
+0 6 * * * cd /Users/mivallion/source/repos/courses/architecture/architecture-pro-quantumforge && HF_HUB_OFFLINE=1 TOKENIZERS_PARALLELISM=false /Users/mivallion/source/repos/courses/architecture/architecture-pro-quantumforge/venv/bin/python -m app.update_index --launchd-label com.quantumforge.ragbot >> /Users/mivallion/source/repos/courses/architecture/architecture-pro-quantumforge/Task6/logs/scheduler.log 2>&1

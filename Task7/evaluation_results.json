@@ -1,0 +1,340 @@
+{
+  "generated_at": "2026-08-11T10:44:39.667617+00:00",
+  "total_cases": 13,
+  "passed_cases": 11,
+  "pass_rate": 0.8462,
+  "known_cases": 8,
+  "known_passed": 6,
+  "known_pass_rate": 0.75,
+  "missing_cases": 5,
+  "missing_passed": 5,
+  "missing_refusal_rate": 1.0,
+  "detected_gaps": [
+    "Tempest Duke progression",
+    "Healing and debuff removal",
+    "Weapon reforging",
+    "Aetherfall geography",
+    "Solarflare Sword crafting"
+  ],
+  "failures": [
+    "known-abyssal-devourer",
+    "known-chromist"
+  ],
+  "cases": [
+    {
+      "case_id": "known-gelid-regent",
+      "topic": "Gelid Regent summoning",
+      "should_answer": true,
+      "actual_status": "answered",
+      "passed": true,
+      "source_match": true,
+      "keywords_match": true,
+      "forbidden_keywords_found": [],
+      "answer_length": 550,
+      "retrieved_chunks": 4,
+      "retrieved_sources": [
+        "01-gelid-regent.md",
+        "09-prismatic-regent.md",
+        "14-sunken-sentinel.md",
+        "30-hearth-warden.md"
+      ],
+      "sources": [
+        "01-gelid-regent.md"
+      ],
+      "retrieval_source_match": true,
+      "duration_seconds": 27.215,
+      "failure_reason": null,
+      "answer": "Обоснование:\n- В тексте о Gelid Regent указаны условия спавна: использование Gelkin Crown, победа в 150 слаймов во время Gelkin Rain (или 75, если Gelid Regent уже был побеждён), редко в шести внешних частях карты днём только на траве [S1].\nОтвет:\nGelid Regent можно призвать следующими способами:  \n1. При использовании Gelkin Crown;  \n2. При победе в 150 слаймов во время Gelkin Rain (или в 75 слаймов, если Gelid Regent уже был побеждён);  \n3. Редко — в шести внешних частях карты днём только на траве.\n\nИсточники:\n- [S1] 01-gelid-regent.md#чанк-0"
+    },
+    {
+      "case_id": "known-abyssal-devourer",
+      "topic": "Abyssal Devourer summoning",
+      "should_answer": true,
+      "actual_status": "refused",
+      "passed": false,
+      "source_match": false,
+      "keywords_match": false,
+      "forbidden_keywords_found": [],
+      "answer_length": 49,
+      "retrieved_chunks": 4,
+      "retrieved_sources": [
+        "03-abyssal-devourer.md",
+        "11-iron-burrower.md",
+        "17-astral-heretic.md",
+        "14-sunken-sentinel.md"
+      ],
+      "sources": [],
+      "retrieval_source_match": true,
+      "duration_seconds": 28.45,
+      "failure_reason": "bot_refused_known_question",
+      "answer": "Я не знаю: в базе знаний недостаточно информации."
+    },
+    {
+      "case_id": "known-gatekeeper-aftermath",
+      "topic": "Gatekeeper Mass progression",
+      "should_answer": true,
+      "actual_status": "answered",
+      "passed": true,
+      "source_match": true,
+      "keywords_match": true,
+      "forbidden_keywords_found": [],
+      "answer_length": 415,
+      "retrieved_chunks": 4,
+      "retrieved_sources": [
+        "08-gatekeeper-mass.md",
+        "14-sunken-sentinel.md",
+        "17-astral-heretic.md",
+        "06-ossuary-warden.md"
+      ],
+      "sources": [
+        "08-gatekeeper-mass.md"
+      ],
+      "retrieval_source_match": true,
+      "duration_seconds": 19.297,
+      "failure_reason": null,
+      "answer": "Обоснование:\n- В разделе \"Aftermath\" о Gatekeeper Mass сказано, что после его победы мир перманентно конвертируется в Ascendant Era, что приводит к появлению новых биомов, новых монстров и изменению игрового процесса [S1].\nОтвет:\nМир перманентно конвертируется в Ascendant Era, что приводит к появлению новых биомов, новых монстров и расширению игрового пространства.\n\nИсточники:\n- [S1] 08-gatekeeper-mass.md#чанк-0"
+    },
+    {
+      "case_id": "known-pathkeeper",
+      "topic": "Pathkeeper services",
+      "should_answer": true,
+      "actual_status": "answered",
+      "passed": true,
+      "source_match": true,
+      "keywords_match": true,
+      "forbidden_keywords_found": [],
+      "answer_length": 491,
+      "retrieved_chunks": 4,
+      "retrieved_sources": [
+        "19-pathkeeper.md",
+        "18-sovereign-of-the-pale-orbit.md",
+        "25-beast-chronicler.md",
+        "27-fresco-keeper.md"
+      ],
+      "sources": [
+        "19-pathkeeper.md"
+      ],
+      "retrieval_source_match": true,
+      "duration_seconds": 14.121,
+      "failure_reason": null,
+      "answer": "Обоснование:\n- В тексте о Pathkeeper указано, что он предоставляет подсказки, главным образом адресованные новым путешественникам, и показывает все рецепты крафта (включая крафтовую станцию, необходимую для изготовления предмета), при этом предмет, показанный ему, используется в крафте [S1].  \nОтвет:\nPathkeeper предоставляет подсказки для новичков и показывает все рецепты крафта, включая крафтовую станцию, необходимую для изготовления предмета.\n\nИсточники:\n- [S1] 19-pathkeeper.md#чанк-0"
+    },
+    {
+      "case_id": "known-chromist",
+      "topic": "Chromist inventory",
+      "should_answer": true,
+      "actual_status": "answered",
+      "passed": false,
+      "source_match": true,
+      "keywords_match": false,
+      "forbidden_keywords_found": [
+        "Skiphs' Blood"
+      ],
+      "answer_length": 399,
+      "retrieved_chunks": 4,
+      "retrieved_sources": [
+        "23-chromist.md",
+        "18-sovereign-of-the-pale-orbit.md",
+        "25-beast-chronicler.md",
+        "13-thornheart.md"
+      ],
+      "sources": [
+        "23-chromist.md",
+        "18-sovereign-of-the-pale-orbit.md"
+      ],
+      "retrieval_source_match": true,
+      "duration_seconds": 14.331,
+      "failure_reason": "forbidden_keyword_present",
+      "answer": "Обоснование:\n- В [S1] указано, что Chromist продаёт Dye Vat и другие dye-связанные предметы.  \n- В [S2] указано, что Chromist начинает награждать wayfarer Skiphs' Blood в обмен на Strange Plants.  \nОтвет:\nChromist продаёт Dye Vat и другие dye-связанные предметы. За Strange Plants можно получить Skiphs' Blood.\n\nИсточники:\n- [S1] 23-chromist.md#чанк-0\n- [S2] 18-sovereign-of-the-pale-orbit.md#чанк-4"
+    },
+    {
+      "case_id": "known-tidecaller",
+      "topic": "Tidecaller quests",
+      "should_answer": true,
+      "actual_status": "answered",
+      "passed": true,
+      "source_match": true,
+      "keywords_match": true,
+      "forbidden_keywords_found": [],
+      "answer_length": 298,
+      "retrieved_chunks": 4,
+      "retrieved_sources": [
+        "24-tidecaller.md",
+        "19-pathkeeper.md",
+        "35-reveler.md",
+        "33-mire-shaman.md"
+      ],
+      "sources": [
+        "24-tidecaller.md"
+      ],
+      "retrieval_source_match": true,
+      "duration_seconds": 11.448,
+      "failure_reason": null,
+      "answer": "Обоснование:\n- Tidecaller занимается только тем, чтобы ловить рыбу, и выдаёт задания на ловлю редких рыб из определённых биомов или слоёв [S1].\nОтвет:\nTidecaller занимается ловлей рыбы и выдаёт задания на ловлю редких рыб из определённых биомов или слоёв.\n\nИсточники:\n- [S1] 24-tidecaller.md#чанк-0"
+    },
+    {
+      "case_id": "known-mire-shaman",
+      "topic": "Mire Shaman spawn",
+      "should_answer": true,
+      "actual_status": "answered",
+      "passed": true,
+      "source_match": true,
+      "keywords_match": true,
+      "forbidden_keywords_found": [],
+      "answer_length": 272,
+      "retrieved_chunks": 4,
+      "retrieved_sources": [
+        "33-mire-shaman.md",
+        "13-thornheart.md",
+        "05-amber-matriarch.md",
+        "02-watcher-of-the-rift.md"
+      ],
+      "sources": [
+        "33-mire-shaman.md"
+      ],
+      "retrieval_source_match": true,
+      "duration_seconds": 11.869,
+      "failure_reason": null,
+      "answer": "Обоснование:\n- В блоке [S1] указано, что Mire Shaman появляется, когда есть подходящее жилище и Amber Matriarch была побеждена [S1].  \nОтвет:\nMire Shaman появляется, когда есть подходящее жилище и Amber Matriarch была побеждена.\n\nИсточники:\n- [S1] 33-mire-shaman.md#чанк-0"
+    },
+    {
+      "case_id": "known-arcanist",
+      "topic": "Arcanist spawn",
+      "should_answer": true,
+      "actual_status": "answered",
+      "passed": true,
+      "source_match": true,
+      "keywords_match": true,
+      "forbidden_keywords_found": [],
+      "answer_length": 358,
+      "retrieved_chunks": 4,
+      "retrieved_sources": [
+        "36-arcanist.md",
+        "14-sunken-sentinel.md",
+        "13-thornheart.md",
+        "17-astral-heretic.md"
+      ],
+      "sources": [
+        "36-arcanist.md"
+      ],
+      "retrieval_source_match": true,
+      "duration_seconds": 14.577,
+      "failure_reason": null,
+      "answer": "Обоснование:\n- В тексте о Arcanist указано, что он редко появляется в подземельях или ниже после того, как был побеждён Gatekeeper Mass of Flesh [S1].\n- Также указано, что он сначала появляется как Bound Arcanist [S1].\nОтвет:\nBound Arcanist появляется в подземельях или ниже после побеждения Gatekeeper Mass of Flesh.\n\nИсточники:\n- [S1] 36-arcanist.md#чанк-0"
+    },
+    {
+      "case_id": "gap-tempest-duke",
+      "topic": "Tempest Duke progression",
+      "should_answer": false,
+      "actual_status": "refused",
+      "passed": true,
+      "source_match": null,
+      "keywords_match": null,
+      "forbidden_keywords_found": [],
+      "answer_length": 49,
+      "retrieved_chunks": 4,
+      "retrieved_sources": [
+        "16-radiant-monarch.md",
+        "14-sunken-sentinel.md",
+        "09-prismatic-regent.md"
+      ],
+      "sources": [],
+      "retrieval_source_match": null,
+      "duration_seconds": 11.482,
+      "failure_reason": null,
+      "answer": "Я не знаю: в базе знаний недостаточно информации."
+    },
+    {
+      "case_id": "gap-vitalist",
+      "topic": "Healing and debuff removal",
+      "should_answer": false,
+      "actual_status": "refused",
+      "passed": true,
+      "source_match": null,
+      "keywords_match": null,
+      "forbidden_keywords_found": [],
+      "answer_length": 49,
+      "retrieved_chunks": 4,
+      "retrieved_sources": [
+        "06-ossuary-warden.md",
+        "30-hearth-warden.md",
+        "18-sovereign-of-the-pale-orbit.md",
+        "17-astral-heretic.md"
+      ],
+      "sources": [],
+      "retrieval_source_match": null,
+      "duration_seconds": 11.236,
+      "failure_reason": null,
+      "answer": "Я не знаю: в базе знаний недостаточно информации."
+    },
+    {
+      "case_id": "gap-gearling-artificer",
+      "topic": "Weapon reforging",
+      "should_answer": false,
+      "actual_status": "refused",
+      "passed": true,
+      "source_match": null,
+      "keywords_match": null,
+      "forbidden_keywords_found": [],
+      "answer_length": 49,
+      "retrieved_chunks": 4,
+      "retrieved_sources": [
+        "30-hearth-warden.md",
+        "22-blastwright.md",
+        "34-gearwright.md",
+        "31-threadshaper.md"
+      ],
+      "sources": [],
+      "retrieval_source_match": null,
+      "duration_seconds": 10.316,
+      "failure_reason": null,
+      "answer": "Я не знаю: в базе знаний недостаточно информации."
+    },
+    {
+      "case_id": "absent-capital",
+      "topic": "Aetherfall geography",
+      "should_answer": false,
+      "actual_status": "refused",
+      "passed": true,
+      "source_match": null,
+      "keywords_match": null,
+      "forbidden_keywords_found": [],
+      "answer_length": 49,
+      "retrieved_chunks": 4,
+      "retrieved_sources": [
+        "18-sovereign-of-the-pale-orbit.md",
+        "07-frostbound-colossus.md",
+        "33-mire-shaman.md",
+        "17-astral-heretic.md"
+      ],
+      "sources": [],
+      "retrieval_source_match": null,
+      "duration_seconds": 6.615,
+      "failure_reason": null,
+      "answer": "Я не знаю: в базе знаний недостаточно информации."
+    },
+    {
+      "case_id": "absent-recipe",
+      "topic": "Solarflare Sword crafting",
+      "should_answer": false,
+      "actual_status": "refused",
+      "passed": true,
+      "source_match": null,
+      "keywords_match": null,
+      "forbidden_keywords_found": [],
+      "answer_length": 49,
+      "retrieved_chunks": 4,
+      "retrieved_sources": [
+        "30-hearth-warden.md",
+        "34-gearwright.md",
+        "16-radiant-monarch.md",
+        "18-sovereign-of-the-pale-orbit.md"
+      ],
+      "sources": [],
+      "retrieval_source_match": null,
+      "duration_seconds": 13.483,
+      "failure_reason": null,
+      "answer": "Я не знаю: в базе знаний недостаточно информации."
+    }
+  ]
+}
