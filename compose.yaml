@@ -1,0 +1,56 @@
+name: quantumforge-rag
+
+services:
+  ollama:
+    image: ollama/ollama:0.32.5
+    environment:
+      OLLAMA_FLASH_ATTENTION: "1"
+      OLLAMA_KV_CACHE_TYPE: q8_0
+      OLLAMA_KEEP_ALIVE: 5m
+    volumes:
+      - ollama-data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+      start_period: 10s
+    restart: unless-stopped
+
+  ollama-model:
+    image: ollama/ollama:0.32.5
+    command: ["pull", "${OLLAMA_MODEL:-qwen3:4b-instruct-2507-q4_K_M}"]
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    volumes:
+      - ollama-data:/root/.ollama
+    depends_on:
+      ollama:
+        condition: service_healthy
+    restart: "no"
+
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env
+    environment:
+      EMBEDDING_LOCAL_FILES_ONLY: "true"
+      HF_HUB_OFFLINE: "1"
+      OLLAMA_HOST: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen3:4b-instruct-2507-q4_K_M}
+      OLLAMA_KEEP_ALIVE: 5m
+      RAG_REPOSITORY_ROOT: /workspace
+    volumes:
+      - ./Task3/index:/workspace/Task3/index:ro
+      - rag-logs:/workspace/Task7
+    depends_on:
+      ollama-model:
+        condition: service_completed_successfully
+    init: true
+    restart: unless-stopped
+
+volumes:
+  ollama-data:
+  rag-logs:

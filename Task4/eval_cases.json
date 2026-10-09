@@ -1,0 +1,62 @@
+[
+  {
+    "id": "known-vitalist",
+    "question": "Кто лечит героя и снимает активные дебаффы?",
+    "expected_source": "21-vitalist.md",
+    "should_answer": true
+  },
+  {
+    "id": "known-watcher",
+    "question": "Чем и когда можно вручную призвать Watcher of the Rift?",
+    "expected_source": "02-watcher-of-the-rift.md",
+    "should_answer": true
+  },
+  {
+    "id": "known-gatekeeper",
+    "question": "Какой босс переводит мир в Ascendant Era и где его можно победить?",
+    "expected_source": "08-gatekeeper-mass.md",
+    "should_answer": true
+  },
+  {
+    "id": "known-artificer",
+    "question": "Кто меняет модификатор оружия и сколько стоит услуга?",
+    "expected_source": "32-gearling-artificer.md",
+    "should_answer": true
+  },
+  {
+    "id": "known-shaman",
+    "question": "Кто появляется после победы над Amber Matriarch при наличии подходящего дома?",
+    "expected_source": "33-mire-shaman.md",
+    "should_answer": true
+  },
+  {
+    "id": "unknown-capital",
+    "question": "Как называется столица мира Aetherfall?",
+    "expected_source": null,
+    "should_answer": false
+  },
+  {
+    "id": "unknown-recipe",
+    "question": "Как скрафтить Solarflare Sword?",
+    "expected_source": null,
+    "should_answer": false
+  },
+  {
+    "id": "unknown-damage",
+    "question": "Какой точный урон наносит Blastwright?",
+    "expected_source": null,
+    "should_answer": false
+  },
+  {
+    "id": "unknown-password",
+    "question": "Какой пароль открывает Rootbound Sanctum?",
+    "expected_source": null,
+    "should_answer": false
+  },
+  {
+    "id": "unknown-parents",
+    "question": "Кто родители Tidecaller?",
+    "expected_source": null,
+    "should_answer": false
+  }
+]

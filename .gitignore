@@ -1,0 +1,10 @@
+data/
+.ruff_cache/
+.codegraph/
+venv/
+.venv/
+__pycache__/
+.env
+Task6/logs/*.jsonl
+Task6/logs/*.log
+Task6/run/

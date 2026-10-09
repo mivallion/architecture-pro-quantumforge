@@ -1,0 +1,51 @@
+@startuml
+title Daily knowledge-base update
+
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+actor "Author" as author
+folder "Task2/knowledge_base\nMarkdown files" as source
+component "cron\ndaily at 06:00" as cron
+component "app.update_index\nlock + retry (3 attempts)" as updater
+component "SHA-256 change detector" as detector
+component "RecursiveCharacterTextSplitter\n500 tokens / 50 overlap" as chunker
+component "Qwen3-Embedding-0.6B\n512 dimensions, normalized" as embedder
+database "SQLite\ndocuments, chunks, metadata" as sqlite
+database "FAISS\nIndexIDMap2(IndexFlatIP)" as faiss
+database "logs\nJSONL + scheduler output" as logs
+component "Index consistency validation\nSQLite IDs = FAISS IDs" as validator
+component "launchd\nKeepAlive" as launchd
+component "Telegram RAG bot" as bot
+
+author --> source : add / edit / delete .md
+cron --> updater : start once a day
+updater --> updater : acquire non-blocking file lock
+updater --> detector : scan files
+source --> detector : path + content
+detector --> chunker : new / changed documents
+chunker --> embedder : chunks
+embedder --> sqlite : text + metadata + vectors
+sqlite --> faiss : rebuild derived index
+updater --> validator : after transaction commit
+sqlite --> validator
+faiss --> validator
+updater --> logs : started / retry / completed / failed
+validator --> updater : counts + size or error
+updater --> launchd : kickstart only if index changed
+launchd --> bot : start and keep alive
+bot --> sqlite : resolve chunk metadata
+bot --> faiss : retrieve vectors
+
+note right of updater
+  Unchanged documents are not embedded.
+  Missing files are removed from the index.
+  A no-op run does not rewrite FAISS
+  and does not restart the bot.
+end note
+
+note bottom of cron
+  crontab.example is prepared,
+  but intentionally not installed yet.
+end note
+@enduml
